@@ -4,19 +4,49 @@
       <router-view />
     </main>
     <footer>
-      <V-tabbar></V-tabbar>
+      <Tabbar :tabList="tabList"></Tabbar>
     </footer>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import VTabbar from "@/components/tabbar/tabbar.vue";
+import Tabbar from "@/components/tabbar/tabbar.vue";
 
 export default {
   name: "home",
   components: {
-    VTabbar
+    Tabbar
+  },
+  data() {
+    return {
+      tabList: [
+        {
+          title: "page01",
+          path: "/",
+          icon: "",
+          icon_press: ""
+        },
+        {
+          title: "page02",
+          path: "/page02",
+          icon: "",
+          icon_press: ""
+        },
+        {
+          title: "page03",
+          path: "/page03",
+          icon: "",
+          icon_press: ""
+        },
+        {
+          title: "page04",
+          path: "/page04",
+          icon: "",
+          icon_press: ""
+        }
+      ]
+    };
   }
 };
 </script>
