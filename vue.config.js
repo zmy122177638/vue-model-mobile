@@ -24,7 +24,9 @@ module.exports = {
     modules: false // 启用 CSS modules for all css / pre-processor files.
   },
   // webpack配置
-  chainWebpack: () => {},
+  chainWebpack: (config) => {
+    config.entry("index").add("@babel/polyfill");
+  },
   configureWebpack: config => {},
   // vue-loader配置
   // vueLoader: {},
