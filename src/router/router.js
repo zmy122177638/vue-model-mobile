@@ -55,7 +55,6 @@ const router = new Router({
         import(/* webpackChunkName: "about" */ "@/views/About.vue"),
       meta: {
         title: "大师详情",
-        tabHiiden: true,
         isTransition: true,
         keepAlive: false
       }

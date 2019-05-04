@@ -14,7 +14,9 @@ export default {
   name: "App",
   data() {
     return {
+      // 动画名称
       transitionName: "",
+      // 缓存路由
       keepAlive: []
     };
   },
@@ -40,6 +42,12 @@ export default {
     });
   },
   methods: {
+    /**
+     * @description: 递归路由设置KeepAlive
+     * @param {Array}  routes 路由数据
+     * @return: undefined
+     * @Date: 2019-05-04 14:57:18
+     */
     setRouteKeepAlive(routes) {
       routes.map(item => {
         if (item.children) {
@@ -54,10 +62,6 @@ export default {
   }
 };
 </script>
-<style lang="less">
-// 全局样式
-@import url("common/styles/mixin.less");
-</style>
 
 <style lang="less" scope>
 #app {
@@ -94,16 +98,5 @@ export default {
 .slide-left-leave-active {
   opacity: 0;
   transform: translate3d(-100%, 0, 0);
-}
-
-#nav {
-  padding: 15px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>

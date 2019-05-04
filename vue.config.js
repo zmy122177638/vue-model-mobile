@@ -1,5 +1,7 @@
+const path = require("path");
+
 module.exports = {
-  publicPath: process.env.NODE_ENV === "production" ? "/webH5/" : "/",
+  publicPath: process.env.NODE_ENV === "production" ? "./" : "./",
   outputDir: "dist", // 运行时生成的生产环境构建文件的目录(默认""dist""，构建之前会被清除)
   assetsDir: "public", //放置生成的静态资源(s、css、img、fonts)的(相对于 outputDir 的)目录(默认"")
   indexPath: "index.html", //指定生成的 index.html 的输出路径(相对于 outputDir)也可以是一个绝对路径。
@@ -24,8 +26,12 @@ module.exports = {
     modules: false // 启用 CSS modules for all css / pre-processor files.
   },
   // webpack配置
-  chainWebpack: (config) => {
-    config.entry("index").add("@babel/polyfill");
+  chainWebpack: config => {
+    // 添加babel/polyfill
+    config
+      .entry("index")
+      .add("@babel/polyfill")
+      .end();
   },
   configureWebpack: config => {},
   // vue-loader配置
@@ -52,5 +58,11 @@ module.exports = {
   //   }
   // },
   // 第三方插件配置
-  pluginOptions: {}
+  pluginOptions: {
+    // 添加LESS全局样式变量( warn: 使用vue add安装错误时,删除node_modules)
+    "style-resources-loader": {
+      preProcessor: "less",
+      patterns: [path.resolve(__dirname, "./src/common/styles/mixin.less")]
+    }
+  }
 };

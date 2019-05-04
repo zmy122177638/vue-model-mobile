@@ -42,6 +42,13 @@ export default {
       tabActiveIndex: 0
     };
   },
+  watch: {
+    $route(now) {
+      this.tabActiveIndex = this.tabList.findIndex(
+        item => item.path === now.path
+      );
+    }
+  },
   created() {
     this.tabActiveIndex = this.tabList.findIndex(
       item => item.path === this.$route.path
