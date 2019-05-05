@@ -1,5 +1,4 @@
 const path = require("path");
-
 module.exports = {
   publicPath: process.env.NODE_ENV === "production" ? "./" : "./",
   outputDir: "dist", // 运行时生成的生产环境构建文件的目录(默认""dist""，构建之前会被清除)
@@ -59,10 +58,10 @@ module.exports = {
   // },
   // 第三方插件配置
   pluginOptions: {
-    // 添加LESS全局样式变量( warn: 使用vue add安装错误时,删除node_modules)
-    "style-resources-loader": {
-      preProcessor: "less",
-      patterns: [path.resolve(__dirname, "./src/common/styles/mixin.less")]
+    // 无法使用全局样式（未解决）,另一个pc模板可以使用。奇怪。
+    'style-resources-loader': {
+      preProcessor: 'less',
+      patterns: [path.resolve(__dirname, './src/common/styles/theme.less')]
     }
   }
 };
