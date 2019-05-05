@@ -69,7 +69,6 @@ export default {
     "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   width: 100%;
   height: 100%;
-  text-align: center;
   overflow: hidden;
   background-color: #f5f5f5;
 }
@@ -79,12 +78,16 @@ export default {
 .slide-left-leave-active {
   will-change: transform;
   transition: all 450ms;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
+  backface-visibility: hidden;
+  perspective: 800;
 }
 .slide-right-enter {
-  opacity: 0;
+  opacity: 1;
   transform: translate3d(-100%, 0, 0);
 }
 .slide-right-leave-active {
@@ -92,7 +95,7 @@ export default {
   transform: translate3d(100%, 0, 0);
 }
 .slide-left-enter {
-  opacity: 0;
+  opacity: 1;
   transform: translate3d(100%, 0, 0);
 }
 .slide-left-leave-active {
