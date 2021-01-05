@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "register-service-worker": "^1.5.2",
     "vant": "^1.6.6",
     "vue": "^2.5.21",
